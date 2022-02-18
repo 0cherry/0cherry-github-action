@@ -8,6 +8,6 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 # chmoe entrypoint.sh
  
-ENTRYPOINT ["ls", "-l", "/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 # run entrypoint.sh
 # ENTRYPOINT ["echo", "hello action"]
