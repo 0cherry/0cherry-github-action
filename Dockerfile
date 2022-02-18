@@ -16,4 +16,4 @@ RUN /bin/sh /entrypoint.sh
 
 RUN date +%s > /report.txt
 
-COPY /report.txt report.txt
+ADD /report.txt report.txt
