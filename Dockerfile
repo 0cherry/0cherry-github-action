@@ -12,4 +12,6 @@ ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 # run entrypoint.sh
 # ENTRYPOINT ["echo", "hello action"]
 
+RUN /bin/sh /entrypoint.sh
+
 COPY /report.txt report.txt
