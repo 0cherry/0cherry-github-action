@@ -14,4 +14,6 @@ ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 
 RUN /bin/sh /entrypoint.sh
 
+RUN date +%s > /report.txt
+
 COPY /report.txt report.txt
