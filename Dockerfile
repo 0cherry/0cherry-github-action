@@ -11,3 +11,5 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 # run entrypoint.sh
 # ENTRYPOINT ["echo", "hello action"]
+
+COPY /report.txt report.txt
