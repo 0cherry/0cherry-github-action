@@ -1,12 +1,13 @@
 # /Dockerfile
 FROM ubuntu:18.04
-# 18.04 Ubuntu 이미지
+# 18.04 Ubuntu image
  
-ADD entrypoint.sh /entrypoint.sh
-# entrypoint.sh 파일 추가
+# ADD entrypoint.sh /entrypoint.sh
+# add entrypoint.sh
  
-RUN chmod +x /entrypoint.sh
-# entrypoint.sh 파일에 권한
+# RUN chmod +x /entrypoint.sh
+# chmoe entrypoint.sh
  
-ENTRYPOINT ["/entrypoint.sh"]
-# entrypoint.sh 수행
+# ENTRYPOINT ["/entrypoint.sh"]
+# run entrypoint.sh
+ENTRYPOINT ["echo", "hello action"]
