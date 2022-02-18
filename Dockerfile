@@ -2,10 +2,10 @@
 FROM ubuntu:18.04
 # 18.04 Ubuntu image
  
-# ADD entrypoint.sh /entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 # add entrypoint.sh
  
-# RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 # chmoe entrypoint.sh
  
 # ENTRYPOINT ["/entrypoint.sh"]
