@@ -2,7 +2,7 @@
 FROM ubuntu:18.04
 # 18.04 Ubuntu image
 
-RUN cat $TARGET
+RUN echo $TARGET
 
 RUN apt-get update
 RUN apt-get install -y git
