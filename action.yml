@@ -2,16 +2,26 @@
 name: 'hello action'
 description: 'add actions'
 inputs:
+  actor:
+    description: 'The name of the person or app that initiated the workflow.'
+    default: ${{ github.actor }}
   token:
     description: 'GITHUB_TOKEN'
     default: ${{ github.token }}
-  target:
+  repository:
+    description: 'The owner and repository name.'
+    default: ${{ github.repository }}
+  branch:
     description: 'branch or tag ref that triggered the workflow run.'
     default: ${{ github.ref }}
+  commit:
+    description: 'The commit SHA that triggered the workflow.'
+    default: ${{ github.sha }}
+  
     
 runs:
   using: 'docker'
   image: Dockerfile
   env:
     TOKEN: ${{ inputs.token }}
-    TARGET: ${{ inputs.target }}
+    BRANCH: ${{ inputs.branch }}

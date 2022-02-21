@@ -1,8 +1,7 @@
 # /Dockerfile
-FROM ubuntu:18.04
-# 18.04 Ubuntu image
+FROM 0cherry/gh_env:latest
 
-RUN echo $TARGET
+RUN echo $GITHUB_ACTOR
  
 ADD entrypoint.sh /entrypoint.sh
 # add entrypoint.sh
