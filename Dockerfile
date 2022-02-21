@@ -8,5 +8,3 @@ RUN chmod +x /entrypoint.sh
 # chmod entrypoint.sh
  
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
-
-RUN /bin/sh /entrypoint.sh
