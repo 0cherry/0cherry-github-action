@@ -40,12 +40,10 @@ echo ==================================
 
 echo ==========Executing PR CMD==========
 COMMAND="gh pr create \
---assignee @me \
 -B $DESTINATION_BRANCH \
 -H $SOURCE_BRANCH \
 -t \"Generate pull-request\" \
 -b \"This PR is auto-generated\" \
-$PR_ARG \
 || true"
 echo "$COMMAND"
 EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
