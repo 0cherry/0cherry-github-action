@@ -1,6 +1,10 @@
 # /entrypoint.sh
 #!/bin/sh
 
+
+git config --global user.email "auto-generator@com"
+git config --global user.name "auto-generator"
+
 echo ==========Authenticating==========
 echo $TOKEN > token
 cat token
