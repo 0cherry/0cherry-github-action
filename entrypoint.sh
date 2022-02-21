@@ -32,7 +32,7 @@ git commit -m "Auto-generated"
 git push origin $SOURCE_BRANCH
 echo ==================================
 
-
+echo ==========Executing PR CMD==========
 COMMAND="gh pr create \
 --assignee @me \
 -B $DESTINATION_BRANCH \
@@ -41,22 +41,8 @@ COMMAND="gh pr create \
 -b \"This PR is auto-generated\" \
 $PR_ARG \
 || true"
-
 echo "$COMMAND"
-
-PR_URL=$(sh -c "$COMMAND")
-if [[ "$?" != "0" ]]; then
-  echo 
-  exit 1
-fi
-
-echo =====================
-
-echo $GITHUB_ACTOR
-echo $TOKEN
-echo $GITHUB_REPOSITORY
-echo $GITHUB_REF
-echo $GITHUB_SHA
-
-echo =====================
+EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
+echo $EXECUTE_PR_COMMAND
+echo ==================================
 
