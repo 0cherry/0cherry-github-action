@@ -27,7 +27,7 @@ echo ==========Pushing Commit==========
 git checkout $GITHUB_REF_NAME
 git checkout -b $SOURCE_BRANCH
 # generate dummy
-echo dummy > dummy
+date +%s%N > dummy
 git add .
 git commit -m "Auto-generated"
 git push origin $SOURCE_BRANCH

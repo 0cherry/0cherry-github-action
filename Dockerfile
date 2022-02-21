@@ -1,5 +1,8 @@
 # /Dockerfile
 FROM 0cherry/gh_env:latest
+
+RUN git config --global user.email ""
+RUN git cinfog --global user.name ""
  
 ADD entrypoint.sh /entrypoint.sh
 # add entrypoint.sh
