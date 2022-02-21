@@ -6,7 +6,7 @@ inputs:
     description: 'GITHUB_TOKEN'
     default: ${{ github.token }}
   target:
-    description: 'he branch or tag ref that triggered the workflow run.'
+    description: 'branch or tag ref that triggered the workflow run.'
     default: ${{ github.ref }}
     
 runs:
