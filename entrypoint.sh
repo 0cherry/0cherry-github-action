@@ -3,6 +3,7 @@
 
 echo ==========Authenticating==========
 echo $TOKEN > token
+cat token
 gh auth login --with-token < token
 echo ==================================
 
