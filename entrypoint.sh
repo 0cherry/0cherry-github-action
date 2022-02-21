@@ -2,8 +2,8 @@
 #!/bin/sh
 
 
-git config --global user.email "auto-generator@com"
-git config --global user.name "auto-generator"
+git config --global user.email "auto@gen"
+git config --global user.name "auto-gen"
 
 echo ==========Authenticating==========
 echo $TOKEN > token
@@ -44,6 +44,7 @@ COMMAND="gh pr create \
 -H $SOURCE_BRANCH \
 -t \"Generate pull-request\" \
 -b \"This PR is auto-generated\" \
+-d \
 || true"
 echo "$COMMAND"
 EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
