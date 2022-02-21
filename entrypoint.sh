@@ -8,7 +8,8 @@ git config --global user.name "auto-generator"
 echo ==========Authenticating==========
 echo $TOKEN > token
 cat token
-gh auth login --with-token < token
+EXECUTE_GH_LOGIN=$(sh -c "gh auth login --with-token < token")
+echo $EXECUTE_GH_LOGIN
 echo ==================================
 
 echo ==========Cloning $GITHUB_REPOSITORY==========
