@@ -13,7 +13,3 @@ ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 # ENTRYPOINT ["echo", "hello action"]
 
 RUN /bin/sh /entrypoint.sh
-
-RUN date +%s > /report.txt
-
-ADD /report.txt report.txt

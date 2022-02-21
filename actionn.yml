@@ -1,6 +1,17 @@
 # /action.yml
 name: 'hello action'
 description: 'add actions'
+inputs:
+  token:
+    description: 'GITHUB_TOKEN'
+    default: ${{ github.token }}
+  target:
+    description: 'he branch or tag ref that triggered the workflow run.'
+    default: ${{ github.ref }}
+    
 runs:
   using: 'docker'
   image: Dockerfile
+  env:
+    TOKEN: ${{ inputs.token }}
+    TARGET: ${{ inputs.target }}
