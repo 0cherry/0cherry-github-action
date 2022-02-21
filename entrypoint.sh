@@ -3,7 +3,7 @@
 
 echo =====================
 
-echo $TARGET
+echo $GITHUB_ACTOR
 
 echo =====================
  

@@ -1,7 +1,5 @@
 # /Dockerfile
 FROM 0cherry/gh_env:latest
-
-RUN echo $GITHUB_ACTOR
  
 ADD entrypoint.sh /entrypoint.sh
 # add entrypoint.sh
