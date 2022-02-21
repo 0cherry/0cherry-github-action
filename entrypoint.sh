@@ -4,10 +4,10 @@
 echo =====================
 
 echo $GITHUB_ACTOR
-
-echo =====================
- 
-echo "Hello Action"
+echo $GITHUB_TOKEN
+echo $GITHUB_REPOSITORY
+echo $GITHUB_REF
+echo $GITHUB_SHA
 
 echo =====================
 
