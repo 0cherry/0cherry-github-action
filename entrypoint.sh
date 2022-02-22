@@ -14,7 +14,7 @@ echo ==================================
 
 echo ==========Cloning $GITHUB_REPOSITORY==========
 # gh repo clone $GITHUB_REPOSITORY repo_clone
-git clone "https://$GITHUB_ACTOR:$TOKEN@${GITHUB_SERVER_URL#https://}/$GITHUB_REPOSITORY"
+git clone "https://$GITHUB_ACTOR:$TOKEN@${GITHUB_SERVER_URL#https://}/$GITHUB_REPOSITORY" repo_clone
 cd repo_clone
 echo ==================================
 
