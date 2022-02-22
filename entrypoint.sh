@@ -56,3 +56,4 @@ EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
 echo $EXECUTE_PR_COMMAND
 echo ==================================
 
+echo $GITHUB_ACTOR
