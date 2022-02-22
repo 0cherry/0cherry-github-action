@@ -46,7 +46,6 @@ COMMAND="gh pr create \
 -H $PATCH_BRANCH \
 -t \"Patch Report for commit sha: $GITHUB_SHA\" \
 -b \"This PR is auto-generated\" \
--d \
 || true"
 echo "$COMMAND"
 EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
