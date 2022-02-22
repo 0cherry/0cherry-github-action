@@ -13,7 +13,8 @@ echo $(gh auth status)
 echo ==================================
 
 echo ==========Cloning $GITHUB_REPOSITORY==========
-gh repo clone $GITHUB_REPOSITORY repo_clone
+# gh repo clone $GITHUB_REPOSITORY repo_clone
+git clone "https://$GITHUB_ACTOR:$TOKEN@${GITHUB_SERVER_URL#https://}/$GITHUB_REPOSITORY"
 cd repo_clone
 echo ==================================
 
