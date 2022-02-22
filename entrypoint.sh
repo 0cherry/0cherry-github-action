@@ -6,6 +6,11 @@ if [ ! -f .vulcan/*.yml ]; then
   exit 1
 fi
 
+echo ==========read yml==========
+source parse_yaml.sh
+_set_command_from_yml .vulcan/test.yml
+echo ==================================
+
 
 git config --global user.email "auto@gen"
 git config --global user.name "auto-gen"
