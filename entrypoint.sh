@@ -1,5 +1,10 @@
 # /entrypoint.sh
-#!/bin/sh
+#!/bin/bash
+
+if [ ! -f .vulcan/*.yml ]; then
+  echo "Requires .vulcan/*.yml"
+  exit 1
+fi
 
 
 git config --global user.email "auto@gen"
