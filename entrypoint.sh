@@ -6,26 +6,27 @@ git config --global user.email "auto@gen"
 git config --global user.name "auto-gen"
 REPO="https://$GITHUB_ACTOR:$TOKEN@${GITHUB_SERVER_URL#https://}/$GITHUB_REPOSITORY"
 
-echo ==========Cloning $GITHUB_REPOSITORY==========
 # gh repo clone $GITHUB_REPOSITORY repo_clone
 git clone $REPO repo_clone
 cd repo_clone
-echo ==================================
+echo ==========Cloned $GITHUB_REPOSITORY==========
 
 DESTINATION_BRANCH="$GITHUB_REF_NAME"
 PATCH_BRANCH="$GITHUB_REF_NAME-auto-patch-$(date +%s%N)"
-echo $DESTINATION_BRANCH
-echo $PATCH_BRANCH
 
-echo ==========Setting Remote==========
-git remote set-url origin $REPO
+echo ==========Switching to $PATCH_BRANCH==========
+# git remote set-url origin $REPO
 # git fetch origin '+refs/heads/*:refs/heads/*' --update-head-ok
 # git --no-pager branch -a -vv
+git checkout $DESTINATION_BRANCH
+git checkout -b $PATCH_BRANCH
 echo ==================================
 
-echo ==========Pushing Commit==========
-git checkout $GITHUB_REF_NAME
-git checkout -b $PATCH_BRANCH
+echo "##########"Processing FL"##########"
+echo "##########"Processing APR"##########"
+echo "##########"Processing VALIDATOR"##########"
+
+echo ==========Pushing change==========
 # generate dummy
 date +%s%N > dummy
 git add .
@@ -33,19 +34,21 @@ git commit -m "Auto-generated"
 git push origin $PATCH_BRANCH
 echo ==================================
 
-echo ==========Authenticating gh==========
+echo ==========gh auth login==========
 echo $TOKEN > token
 cat token
 gh auth login --with-token < token
 gh auth status
 echo ==================================
 
-echo ==========Executing PR CMD==========
+echo ==========Creating PR==========
+echo from: $PATCH_BRANCH
+echo into: $DESTINATION_BRANCH
 COMMAND="gh pr create \
 -B $DESTINATION_BRANCH \
 -H $PATCH_BRANCH \
--t \"Patch Report for commit sha: $GITHUB_SHA\" \
--b \"This PR is auto-generated\" \
+-t \"Patch Report for commit: ${GITHUB_SHA:0:6}\" \
+-b \"This PR is auto patch for commit: ${GITHUB_SHA:0:6}\" \
 || true"
 echo "$COMMAND"
 EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
