@@ -46,8 +46,8 @@ echo into: $DESTINATION_BRANCH
 COMMAND="gh pr create \
 -B $DESTINATION_BRANCH \
 -H $PATCH_BRANCH \
--t \"Patch Report for commit: ${GITHUB_SHA:0:6}\" \
--b \"This PR is auto patch for commit: ${GITHUB_SHA:0:6}\" \
+-t \"Patch Report for commit: $GITHUB_SHA\" \
+-b \"This PR is auto-patch for commit: $GITHUB_SHA\" \
 || true"
 echo "$COMMAND"
 EXECUTE_PR_COMMAND=$(sh -c "$COMMAND")
