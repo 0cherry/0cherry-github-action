@@ -36,7 +36,6 @@ echo ==================================
 
 echo ==========gh auth login==========
 echo $TOKEN > token
-cat token
 gh auth login --with-token < token
 gh auth status
 echo ==================================
