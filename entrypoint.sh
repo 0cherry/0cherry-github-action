@@ -43,7 +43,8 @@ echo ==================================
 echo ==========Creating PR==========
 echo from: $PATCH_BRANCH
 echo into: $DESTINATION_BRANCH
-SHORT_COMMIT=${GITHUB_SHA:0:6}
+# SHORT_COMMIT=${GITHUB_SHA:0:6} # operate in bash shell
+SHORT_COMMIT=${echo $GITHUB_SHA | cut -c1-6}
 COMMAND="gh pr create \
 -B $DESTINATION_BRANCH \
 -H $PATCH_BRANCH \
