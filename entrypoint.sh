@@ -7,7 +7,7 @@ if [ ! -f .vulcan/*.yml ]; then
 fi
 
 echo ==========read yml==========
-source parse_yaml.sh
+source /parse_yaml.sh
 _set_command_from_yml .vulcan/test.yml
 echo extra-commands: $extra-build-env-setting-commands
 echo build-command: $test-build-command
