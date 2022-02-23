@@ -1,14 +1,24 @@
-# /action.yml
-name: 'hello action'
-description: 'add actions'
+# action.yml
+name: 'Vulcan Auto Patch Generator'
+description: 'Auto fix on the branch which triggers a workflow'
 inputs:
   token:
     description: 'GITHUB_TOKEN'
     default: ${{ github.token }}
   
-    
 runs:
-  using: 'docker'
-  image: Dockerfile
-  env:
-    TOKEN: ${{ inputs.token }}
+  using: 'composite'
+  steps:
+    - name: Set permissions
+      run: chmod +x -R $GITHUB_ACTION_PATH/vulcan
+      shell: bash
+    - name: Set github token
+      run: export TOKEN=${{ inputs.token }}
+      shell: bash
+    - name: Checkout vulcan target
+      uses: actions/checkout@v2
+      with:
+        token: ${{ inputs.token }}
+        path: vulcan_target
+    - run: $GITHUB_ACTION_PATH/vulcan/entry.sh
+      shell: bash
