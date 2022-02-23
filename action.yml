@@ -13,7 +13,7 @@ runs:
       run: chmod +x -R $GITHUB_ACTION_PATH/vulcan
       shell: bash
     - name: Create token file for gh auth
-      run: ${{ inputs.token }} > $GITHUB_ACTION_PATH/token
+      run: echo ${{ inputs.token }} > $GITHUB_ACTION_PATH/token
       shell: bash
     - name: Checkout vulcan target
       uses: actions/checkout@v2
