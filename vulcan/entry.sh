@@ -6,6 +6,10 @@ if [ ! -f $GITHUB_WORKSPACE/vulcan_target/.vulcan.yml ]; then
   exit 1
 fi
 
+echo $TOKEN > token
+gh auth login --with-token < token
+gh auth status
+
 source $GITHUB_ACTION_PATH/vulcan/git/config.sh
 # source $GITHUB_ACTION_PATH/vulcan/git/auth.sh
 source $GITHUB_ACTION_PATH/vulcan/git/checkout.sh
