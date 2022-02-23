@@ -7,7 +7,8 @@ if [ ! -f $GITHUB_WORKSPACE/vulcan_target/.vulcan.yml ]; then
 fi
 
 echo $TOKEN > token
-gh auth login --with-token < token
+cat token
+# gh auth login --with-token < token
 gh auth status
 
 source $GITHUB_ACTION_PATH/vulcan/git/config.sh
