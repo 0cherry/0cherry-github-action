@@ -6,7 +6,8 @@ if [ ! -f $GITHUB_WORKSPACE/vulcan_target/.vulcan.yml ]; then
   exit 1
 fi
 
-cat =========
+echo =========
+echo ${{ inputs.token }}
 echo $TOKEN
 echo $TOKEN > token
 cat token
